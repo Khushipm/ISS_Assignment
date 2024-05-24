@@ -1,0 +1,949 @@
+1. Basics of Java
+
+Class: A blueprint for creating objects. It defines a datatype by bundling data and methods that work on the data into one single unit.
+Object: An instance of a class. It has a state and behavior.
+State (Instance Variable): Represents the data (attributes) of an object.
+Methods (Behavior): Functions defined in a class that describe the behaviors of the objects of that class.
+
+Example:
+
+import org.apache.log4j.Logger;
+
+// Class definition
+class Car {
+    private static final Logger logger = Logger.getLogger(Car.class);
+
+    // Instance variables (state)
+    private String carColor;
+    private String carModel;
+    private int carSpeed;
+
+    // Constructor
+    public Car(String color, String model) {
+        this.carColor = color;
+        this.carModel = model;
+        this.carSpeed = 0;
+    }
+
+    // Method to accelerate (behavior)
+    public void accelerate() {
+        carSpeed += 10;
+        logger.info("Accelerating. Speed: " + carSpeed);
+    }
+
+    // Getters
+    public String getCarColor() {
+        return carColor;
+    }
+
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public int getCarSpeed() {
+        return carSpeed;
+    }
+}
+
+// Main class to test the Car class
+public class CarDemo {
+    private static final Logger logger = Logger.getLogger(CarDemo.class);
+
+    public static void main(String[] args) {
+        // Creating an object of Car
+        Car myCar = new Car("Red", "Tesla");
+
+        // Using methods of the Car object
+        myCar.accelerate();  // Log output: Accelerating. Speed: 10
+        logger.info("Car color: " + myCar.getCarColor());
+        logger.info("Car model: " + myCar.getCarModel());
+    }
+}
+
+
+
+
+2. Basic Datatypes, Variable Types, Modifier Types, Final Keyword, Constructors
+2.1 Basic Datatypes
+Java provides several built-in data types.
+
+Example:
+
+2.2. Variable Types
+Local Variables: Declared inside a method.
+Instance Variables: Declared in a class but outside any method.
+Class Variables (Static Variables): Declared with the static keyword.
+
+2.3 Modifier Types
+Access Modifiers: private, protected, public
+Non-access Modifiers: static, final, abstract
+
+2.4 Final Keyword
+Final Variable: Cannot be changed once initialized.
+Final Method: Cannot be overridden by subclasses.
+Final Class: Cannot be subclassed.
+
+2.5 Constructors
+Special methods to initialize objects.
+
+Example:
+
+import org.apache.log4j.Logger;
+
+class Employee {
+    private static final Logger logger = Logger.getLogger(Employee.class);
+
+    // Instance variables
+    private String employeeName;
+    private int employeeId;
+    private static final String COMPANY_NAME = "TechCorp";  // Final variable
+
+    // Constructor
+    public Employee(String name, int id) {
+        this.employeeName = name;
+        this.employeeId = id;
+    }
+
+    // Method to display employee details
+    public void displayEmployeeDetails() {
+        logger.info("Employee ID: " + employeeId + ", Employee Name: " + employeeName);
+    }
+
+    // Getter for company name
+    public static String getCompanyName() {
+        return COMPANY_NAME;
+    }
+}
+
+public class EmployeeDemo {
+    private static final Logger logger = Logger.getLogger(EmployeeDemo.class);
+
+    public static void main(String[] args) {
+        Employee emp = new Employee("Alice", 101);
+        emp.displayEmployeeDetails();  // Log output: Employee ID: 101, Employee Name: Alice
+        logger.info("Company Name: " + Employee.getCompanyName());
+    }
+}
+
+
+3. Loop Control and Decision Making
+3.1 Loop Control
+For Loop: Repeats a block of code a specific number of times.
+While Loop: Repeats a block of code while a condition is true.
+Do-While Loop: Like the while loop, but it executes the block at least once.
+
+3.2 Decision Making
+If Statement: Executes a block of code if the condition is true.
+If-Else Statement: Executes one block of code if the condition is true, another block if it's false.
+Switch Statement: Selects a block of code to execute from multiple choices.
+
+Example:
+import org.apache.log4j.Logger;
+
+public class LoopAndDecisionDemo {
+    private static final Logger logger = Logger.getLogger(LoopAndDecisionDemo.class);
+
+    public static void main(String[] args) {
+        // For loop example
+        for (int i = 0; i < 5; i++) {
+            logger.info("For loop iteration: " + i);
+        }
+
+        // While loop example
+        int count = 0;
+        while (count < 5) {
+            logger.info("While loop iteration: " + count);
+            count++;
+        }
+
+        // Decision making example
+        int number = 10;
+        if (number > 0) {
+            logger.info("Number is positive.");
+        } else if (number < 0) {
+            logger.info("Number is negative.");
+        } else {
+            logger.info("Number is zero.");
+        }
+
+        // Switch example
+        char grade = 'A';
+        switch (grade) {
+            case 'A':
+                logger.info("Excellent!");
+                break;
+            case 'B':
+                logger.info("Well done!");
+                break;
+            default:
+                logger.info("Invalid grade.");
+        }
+    }
+}
+
+
+
+4. Strings, Arrays
+4.1 Strings
+Strings are objects that represent sequences of characters.
+
+4.2 Arrays
+Arrays are containers that hold a fixed number of values of a single type.
+
+Example:
+import org.apache.log4j.Logger;
+
+public class StringAndArrayDemo {
+    private static final Logger logger = Logger.getLogger(StringAndArrayDemo.class);
+
+    public static void main(String[] args) {
+        // String example
+        String greeting = "Hello, World!";
+        logger.info("Greeting: " + greeting);
+
+        // Array example
+        int[] numbers = {1, 2, 3, 4, 5};
+        for (int num : numbers) {
+            logger.info("Array element: " + num);
+        }
+    }
+}
+
+
+
+5. Inheritance, Overriding, Polymorphism, Abstraction, Encapsulation, Interfaces, Packages
+5.1 Inheritance
+One class inherits the fields and methods of another.
+
+5.2 Overriding
+A subclass provides a specific implementation of a method already defined in its superclass.
+
+Example:
+import org.apache.log4j.Logger;
+
+class Animal {
+    private static final Logger logger = Logger.getLogger(Animal.class);
+
+    public void makeSound() {
+        logger.info("Animal makes a sound.");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        logger.info("Dog barks.");
+    }
+}
+
+public class PolymorphismDemo {
+    private static final Logger logger = Logger.getLogger(PolymorphismDemo.class);
+
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        myDog.makeSound();  // Log output: Dog barks.
+    }
+}
+
+
+5.3 Polymorphism
+The ability of different classes to respond to the same method call in different ways.
+
+Example:
+
+
+5.4 Abstraction
+Hiding the complex implementation details and showing only the essential features of the object.
+
+Example:
+
+5.5 Encapsulation
+Wrapping the data (variables) and code (methods) together as a single unit.
+
+Example:
+class Person {
+    private String personName;
+
+    public String getPersonName() {
+        return personName;
+    }
+
+    public void setPersonName(String name) {
+        this.personName = name;
+    }
+}
+
+public class EncapsulationDemo {
+    private static final Logger logger = Logger.getLogger(EncapsulationDemo.class);
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setPersonName("John");
+        logger.info("Person name: " + person.getPersonName());
+    }
+}
+
+
+5.6 Interfaces
+An interface is a reference type, similar to a class, that can contain only constants, method signatures, default methods, static methods, and nested types.
+
+Example:
+import org.apache.log4j.Logger;
+
+interface AnimalBehavior {
+    void eat();
+}
+
+class Cat implements AnimalBehavior {
+    private static final Logger logger = Logger.getLogger(Cat.class);
+
+    public void eat() {
+        logger.info("Cat eats.");
+    }
+}
+
+public class InterfaceDemo {
+    private static final Logger logger = Logger.getLogger(InterfaceDemo.class);
+
+    public static void main(String[] args) {
+        AnimalBehavior cat = new Cat();
+        cat.eat();  // Log output: Cat eats.
+    }
+}
+
+
+5.7 Packages
+A package is a namespace for organizing classes and interfaces in a logical manner.
+
+Example:
+// PackageDemo.java (Assume this class is in package animals)
+package animals;
+
+import org.apache.log4j.Logger;
+
+public class PackageDemo {
+    private static final Logger logger = Logger.getLogger(PackageDemo.class);
+
+    public void displayMessage() {
+        logger.info("This is a message from the animals package.");
+    }
+}
+
+// Main.java (In the default package)
+import animals.PackageDemo;
+
+public class Main {
+    private static final Logger logger = Logger.getLogger(Main.class);
+
+    public static void main(String[] args) {
+        PackageDemo demo = new PackageDemo();
+        demo.displayMessage();  // Log output: This is a message from the animals package.
+    }
+}
+
+
+6. Exception Handling in Java
+6.1 Exception Hierarchy
+In Java, exceptions are objects that describe an exceptional condition that has occurred in a piece of code. The Throwable class is the superclass of all errors and exceptions in Java.
+
+Exception: A class that describes errors caused by your program and external circumstances. It's divided into checked exceptions and unchecked exceptions.
+Checked Exceptions: Exceptions that are checked at compile-time. E.g., IOException, SQLException.
+Unchecked Exceptions: Exceptions that are not checked at compile-time. E.g., ArithmeticException, NullPointerException.
+
+6.2 Handling Exceptions
+You handle exceptions using try, catch, finally, throw, and throws.
+
+try-catch: Enclose the code that might throw an exception within a try block, and handle the exception within a catch block.
+finally: A block that executes regardless of whether an exception is thrown or not.
+throw: Used to explicitly throw an exception.
+throws: Used in method signatures to declare that a method might throw exceptions.
+
+Example:
+import org.apache.log4j.Logger;
+
+public class ExceptionHandlingDemo {
+    private static final Logger logger = Logger.getLogger(ExceptionHandlingDemo.class);
+
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            logger.error("Cannot divide by zero!", e);
+        } finally {
+            logger.info("This block is always executed.");
+        }
+
+        try {
+            checkAge(15);
+        } catch (Exception e) {
+            logger.error("Exception occurred: ", e);
+        }
+    }
+
+    // Method that throws an exception
+    public static void checkAge(int age) throws Exception {
+        if (age < 18) {
+            throw new Exception("Age must be at least 18");
+        }
+    }
+}
+
+
+
+7. Collections: List, Set, and Map
+7.1 List
+A List is an ordered collection that allows duplicate elements. Common implementations are ArrayList and LinkedList.
+
+Example:
+import org.apache.log4j.Logger;
+import java.util.ArrayList;
+import java.util.List;
+
+class Student {
+    private int studentId;
+    private String studentName;
+
+    // Constructor
+    public Student(int id, String name) {
+        this.studentId = id;
+        this.studentName = name;
+    }
+
+    // Getters
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+}
+
+public class ListDemo {
+    private static final Logger logger = Logger.getLogger(ListDemo.class);
+
+    public static void main(String[] args) {
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(new Student(1, "Alice"));
+        studentList.add(new Student(2, "Bob"));
+
+        for (Student student : studentList) {
+            logger.info("Student ID: " + student.getStudentId() + ", Student Name: " + student.getStudentName());
+        }
+    }
+}
+
+
+7.2 Set
+A Set is an unordered collection that does not allow duplicate elements. Common implementations are HashSet and TreeSet.
+
+Example:
+import org.apache.log4j.Logger;
+import java.util.HashSet;
+import java.util.Set;
+
+class Student {
+    private int studentId;
+    private String studentName;
+
+    // Constructor
+    public Student(int id, String name) {
+        this.studentId = id;
+        this.studentName = name;
+    }
+
+    // Getters
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    @Override
+    public int hashCode() {
+        return studentId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student student = (Student) obj;
+        return studentId == student.studentId;
+    }
+}
+
+public class SetDemo {
+    private static final Logger logger = Logger.getLogger(SetDemo.class);
+
+    public static void main(String[] args) {
+        Set<Student> studentSet = new HashSet<>();
+        studentSet.add(new Student(1, "Alice"));
+        studentSet.add(new Student(2, "Bob"));
+
+        for (Student student : studentSet) {
+            logger.info("Student ID: " + student.getStudentId() + ", Student Name: " + student.getStudentName());
+        }
+    }
+}
+
+
+7.3 Map
+A Map is an object that maps keys to values. It cannot contain duplicate keys. Common implementations are HashMap and TreeMap.
+
+Example:
+import org.apache.log4j.Logger;
+import java.util.HashMap;
+import java.util.Map;
+
+class Student {
+    private int studentId;
+    private String studentName;
+
+    // Constructor
+    public Student(int id, String name) {
+        this.studentId = id;
+        this.studentName = name;
+    }
+
+    // Getters
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    @Override
+    public int hashCode() {
+        return studentId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student student = (Student) obj;
+        return studentId == student.studentId;
+    }
+}
+
+public class MapDemo {
+    private static final Logger logger = Logger.getLogger(MapDemo.class);
+
+    public static void main(String[] args) {
+        Map<Student, String> studentMap = new HashMap<>();
+        studentMap.put(new Student(1, "Alice"), "Grade A");
+        studentMap.put(new Student(2, "Bob"), "Grade B");
+
+        for (Map.Entry<Student, String> entry : studentMap.entrySet()) {
+            Student student = entry.getKey();
+            String grade = entry.getValue();
+            logger.info("Student ID: " + student.getStudentId() + ", Student Name: " + student.getStudentName() + ", Grade: " + grade);
+        }
+    }
+}
+
+
+7.4 Sort List of Primitives and Custom Objects
+Comparable vs Comparator
+Comparable: Used to define the natural ordering of objects. Implement the compareTo method.
+Example:
+import org.apache.log4j.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Student implements Comparable<Student> {
+    private int studentId;
+    private String studentName;
+
+    // Constructor
+    public Student(int id, String name) {
+        this.studentId = id;
+        this.studentName = name;
+    }
+
+    // Getters
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        return Integer.compare(this.studentId, other.studentId);
+    }
+}
+
+public class ComparableDemo {
+    private static final Logger logger = Logger.getLogger(ComparableDemo.class);
+
+    public static void main(String[] args) {
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(new Student(2, "Bob"));
+        studentList.add(new Student(1, "Alice"));
+
+        Collections.sort(studentList);
+
+        for (Student student : studentList) {
+            logger.info("Student ID: " + student.getStudentId() + ", Student Name: " + student.getStudentName());
+        }
+    }
+}
+
+
+Comparator: Used to define an alternative ordering. Implement the compare method.
+
+Example:
+import org.apache.log4j.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student {
+    private int studentId;
+    private String studentName;
+
+    // Constructor
+    public Student(int id, String name) {
+        this.studentId = id;
+        this.studentName = name;
+    }
+
+    // Getters
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+}
+
+class StudentNameComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student s1, Student s2) {
+        return s1.getStudentName().compareTo(s2.getStudentName());
+    }
+}
+
+public class ComparatorDemo {
+    private static final Logger logger = Logger.getLogger(ComparatorDemo.class);
+
+    public static void main(String[] args) {
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(new Student(2, "Bob"));
+        studentList.add(new Student(1, "Alice"));
+
+        Collections.sort(studentList, new StudentNameComparator());
+
+        for (Student student : studentList) {
+            logger.info("Student ID: " + student.getStudentId() + ", Student Name: " + student.getStudentName());
+        }
+    }
+}
+
+
+8. Multithreading
+
+Thread Pool Executor: Manages a pool of worker threads.
+Example: 
+import org.apache.log4j.Logger;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class Task implements Runnable {
+    private static final Logger logger = Logger.getLogger(Task.class);
+
+    @Override
+    public void run() {
+        logger.info("Task is running.");
+    }
+}
+
+public class ThreadPoolExecutorDemo {
+    private static final Logger logger = Logger.getLogger(ThreadPoolExecutorDemo.class);
+
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        for (int i = 0; i < 5; i++) {
+            executor.execute(new Task());
+        }
+
+        executor.shutdown();
+    }
+}
+
+
+Volatile Keyword: Indicates that a variable's value will be modified by different threads.
+Example: 
+import org.apache.log4j.Logger;
+
+class VolatileDemo extends Thread {
+    private static final Logger logger = Logger.getLogger(VolatileDemo.class);
+    private volatile boolean running = true;
+
+    public void run() {
+        while (running) {
+            logger.info("Thread is running...");
+        }
+        logger.info("Thread has stopped.");
+    }
+
+    public void stopThread() {
+        running = false;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        VolatileDemo thread = new VolatileDemo();
+        thread.start();
+        Thread.sleep(1000);
+        thread.stopThread();
+    }
+}
+
+
+Thread Safety: Ensuring that data is consistent when accessed by multiple threads.
+Synchronized: Use the synchronized keyword to control access to a block/method.
+
+Example:
+import org.apache.log4j.Logger;
+
+class Counter {
+    private static final Logger logger = Logger.getLogger(Counter.class);
+    private int count = 0;
+
+    // Synchronized method
+    public synchronized void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+
+class CounterTask implements Runnable {
+    private Counter counter;
+
+    public CounterTask(Counter counter) {
+        this.counter = counter;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            counter.increment();
+        }
+    }
+}
+
+public class ThreadSafeDemo {
+    private static final Logger logger = Logger.getLogger(ThreadSafeDemo.class);
+
+    public static void main(String[] args) throws InterruptedException {
+        Counter counter = new Counter();
+        Thread t1 = new Thread(new CounterTask(counter));
+        Thread t2 = new Thread(new CounterTask(counter));
+
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+
+        logger.info("Final count: " + counter.getCount());  // Log output should be 2000
+    }
+}
+
+
+
+9. JSON
+JSON (JavaScript Object Notation) is a lightweight data-interchange format.
+
+Example:
+import org.apache.log4j.Logger;
+import com.google.gson.Gson;
+
+class Employee {
+    private int id;
+    private String name;
+
+    // Constructor
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    // Getters
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class JsonDemo {
+    private static final Logger logger = Logger.getLogger(JsonDemo.class);
+
+    public static void main(String[] args) {
+        Employee emp = new Employee(1, "John");
+
+        // Convert Java object to JSON
+        Gson gson = new Gson();
+        String json = gson.toJson(emp);
+        logger.info("Employee JSON: " + json);
+
+        // Convert JSON back to Java object
+        Employee empFromJson = gson.fromJson(json, Employee.class);
+        logger.info("Employee from JSON: ID=" + empFromJson.getId() + ", Name=" + empFromJson.getName());
+    }
+}
+
+
+
+10. XML
+XML (eXtensible Markup Language) is used to store and transport data.
+
+Example:
+
+
+
+
+10. XML
+XML (eXtensible Markup Language) is used to store and transport data.
+
+Example:
+import org.apache.log4j.Logger;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class XmlDemo {
+    private static final Logger logger = Logger.getLogger(XmlDemo.class);
+
+    public static void main(String[] args) {
+        try {
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+            // Root element
+            Document doc = docBuilder.newDocument();
+            Element rootElement = doc.createElement("employees");
+            doc.appendChild(rootElement);
+
+            // Employee element
+            Element employee = doc.createElement("employee");
+            rootElement.appendChild(employee);
+
+            // ID element
+            Element id = doc.createElement("id");
+            id.appendChild(doc.createTextNode("1"));
+            employee.appendChild(id);
+
+            // Name element
+            Element name = doc.createElement("name");
+            name.appendChild(doc.createTextNode("John"));
+            employee.appendChild(name);
+
+            // Write the content into XML file
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(System.out);
+
+            transformer.transform(source, result);
+
+        } catch (Exception e) {
+            logger.error("Error while creating XML", e);
+        }
+    }
+}
+
+
+
+
+11. JDBC
+JDBC (Java Database Connectivity) is an API for connecting and executing queries in a database.
+
+Example:
+import org.apache.log4j.Logger;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class JdbcDemo {
+    private static final Logger logger = Logger.getLogger(JdbcDemo.class);
+
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/testdb";
+        String username = "root";
+        String password = "password";
+
+        try (Connection conn = DriverManager.getConnection(url, username, password);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM employees")) {
+
+            while (rs.next()) {
+                logger.info("ID: " + rs.getInt("id") + ", Name: " + rs.getString("name"));
+            }
+
+        } catch (Exception e) {
+            logger.error("Database connection error", e);
+        }
+    }
+}
+
+
+12. File Read/Write
+Reading and writing files in Java.
+
+Example:
+import org.apache.log4j.Logger;
+import java.io.*;
+
+public class FileReadWriteDemo {
+    private static final Logger logger = Logger.getLogger(FileReadWriteDemo.class);
+
+    public static void main(String[] args) {
+        String filePath = "example.txt";
+
+        // Write to file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("Hello, World!");
+        } catch (IOException e) {
+            logger.error("Error writing to file", e);
+        }
+
+        // Read from file
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                logger.info("File content: " + line);
+            }
+        } catch (IOException e) {
+            logger.error("Error reading from file", e);
+        }
+    }
+}
+
+
