@@ -1,0 +1,193 @@
+
+### 3. Client Side Programming
+
+#### 1. HTML
+HTML (HyperText Markup Language) is the standard language for creating web pages. It describes the structure of a webpage using markup.
+
+**HTML Forms:**
+Forms are used to collect user input.
+
+**Example:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Form Example</title>
+</head>
+<body>
+    <h2>Contact Us</h2>
+    <form action="/submit_form" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+```
+
+**HTML Form Elements:**
+- `<form>`: Defines an HTML form for user input.
+- `<label>`: Defines a label for an `<input>` element.
+- `<input>`: Defines an input control.
+- `<textarea>`: Defines a multi-line input control (text area).
+
+**HTML Input Types:**
+- `type="text"`: Single-line text input.
+- `type="email"`: Input for email addresses.
+- `type="submit"`: Submit button for the form.
+
+**HTML Input Attributes:**
+- `required`: Specifies that an input field must be filled out before submitting the form.
+- `name`: Specifies the name of the input field.
+
+#### 2. CSS
+CSS (Cascading Style Sheets) is used to style and layout web pages. It controls the look and feel of HTML elements.
+
+**Example:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="/submit_form" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
+```
+
+**Using Bootstrap:**
+Bootstrap is a popular CSS framework for building responsive and mobile-first websites.
+
+**Example:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="/submit_form" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+#### 3. JavaScript - For Validation
+
+JavaScript is a programming language used to create dynamic content on webpages.
+
+**Example:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Validation Example</title>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            if (name == "" || email == "") {
+                alert("Name and email must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="/submit_form" method="post" onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
