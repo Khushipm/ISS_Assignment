@@ -1,13 +1,13 @@
 
-### 3. Client Side Programming
+ 3. Client Side Programming
 
-#### 1. HTML
+ 1. HTML
 HTML (HyperText Markup Language) is the standard language for creating web pages. It describes the structure of a webpage using markup.
 
-**HTML Forms:**
+HTML Forms:
 Forms are used to collect user input.
 
-**Example:**
+Example:
 ```html
 <!DOCTYPE html>
 <html>
@@ -32,25 +32,25 @@ Forms are used to collect user input.
 </html>
 ```
 
-**HTML Form Elements:**
+HTML Form Elements:
 - `<form>`: Defines an HTML form for user input.
 - `<label>`: Defines a label for an `<input>` element.
 - `<input>`: Defines an input control.
 - `<textarea>`: Defines a multi-line input control (text area).
 
-**HTML Input Types:**
+HTML Input Types:
 - `type="text"`: Single-line text input.
 - `type="email"`: Input for email addresses.
 - `type="submit"`: Submit button for the form.
 
-**HTML Input Attributes:**
+HTML Input Attributes:
 - `required`: Specifies that an input field must be filled out before submitting the form.
 - `name`: Specifies the name of the input field.
 
-#### 2. CSS
+ 2. CSS
 CSS (Cascading Style Sheets) is used to style and layout web pages. It controls the look and feel of HTML elements.
 
-**Example:**
+Example:
 ```html
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@ CSS (Cascading Style Sheets) is used to style and layout web pages. It controls 
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: f4f4f4;
         }
         .container {
             width: 50%;
@@ -69,7 +69,7 @@ CSS (Cascading Style Sheets) is used to style and layout web pages. It controls 
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: #333;
+            color: 333;
         }
         label {
             display: block;
@@ -80,17 +80,17 @@ CSS (Cascading Style Sheets) is used to style and layout web pages. It controls 
             padding: 10px;
             margin-top: 5px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid ccc;
             border-radius: 4px;
         }
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: 4CAF50;
             color: white;
             border: none;
             cursor: pointer;
         }
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: 45a049;
         }
     </style>
 </head>
@@ -114,10 +114,10 @@ CSS (Cascading Style Sheets) is used to style and layout web pages. It controls 
 </html>
 ```
 
-**Using Bootstrap:**
+Using Bootstrap:
 Bootstrap is a popular CSS framework for building responsive and mobile-first websites.
 
-**Example:**
+Example:
 ```html
 <!DOCTYPE html>
 <html>
@@ -151,11 +151,11 @@ Bootstrap is a popular CSS framework for building responsive and mobile-first we
 </html>
 ```
 
-#### 3. JavaScript - For Validation
+ 3. JavaScript - For Validation
 
 JavaScript is a programming language used to create dynamic content on webpages.
 
-**Example:**
+Example:
 ```html
 <!DOCTYPE html>
 <html>
