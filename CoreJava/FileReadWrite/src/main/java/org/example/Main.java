@@ -122,10 +122,7 @@ public class Main {
 
             }
 
-            System.out.println("Thank You!");
-            System.out.println("    Credits:\n" +
-                    "    Bhuvan Kohli\n" +
-                    "    bhuvan.kohli@geminisolutions.com");
+    
 
 
         }catch (Exception e){
@@ -133,7 +130,3 @@ public class Main {
         }
     }
 }
-/*Credits:
-    Bhuvan Kohli
-    bhuvan.kohli@geminisolutions.com
-*/
